@@ -1,11 +1,14 @@
 {
   "name": "v19-react-pizza",
+  "author": "Jayaram Venkatanarayanan",
+  "license": "Apache-2.0",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "format": "prettier --write \"src/**/*.{js,tsx}\"",
     "lint": "eslint .",
     "preview": "vite preview"
   },
