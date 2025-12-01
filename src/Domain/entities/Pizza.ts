@@ -1,4 +1,4 @@
-export interface Pizzas {
+export interface Pizza {
   name: string;
   desc: string;
 }

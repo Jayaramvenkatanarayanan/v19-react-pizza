@@ -1,7 +1,7 @@
 import React from 'react';
-import type { Pizzas } from '../../Domain/entities/Pizza';
+import type { Pizza } from '../../Domain/entities/Pizza';
 interface PizzaListProps {
-  pizza: Pizzas;
+  pizza: Pizza;
 }
 
 const PizzaList: React.FC<PizzaListProps> = ({pizza}) => {

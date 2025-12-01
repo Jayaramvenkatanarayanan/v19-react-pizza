@@ -1,9 +1,13 @@
-import PizzaList from "./PizzaList"
-import { pizzaMock } from "../mock/pizzaMock"
+import PizzaList from "./PizzaList";
+import { pizzaMock } from "../mock/pizzaMock";
 function App() {
   return (
-  <PizzaList pizza={pizzaMock} />
-  )
+    <div>
+      {pizzaMock.map((item) => (
+        <PizzaList pizza={item} />
+      ))}
+    </div>
+  );
 }
 
-export default App
+export default App;
