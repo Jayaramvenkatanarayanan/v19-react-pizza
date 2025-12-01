@@ -5,6 +5,25 @@
 Padre Gino’s Pizza is a fast, responsive, and modern pizza ordering platform designed using cutting-edge frontend technologies. The project showcases real-world architecture, latest React features, performance-oriented state handling, reusable UI components, and clean folder structure.
 
 ---
+## Folder
+
+Core Layers in React
+Domain: Pure business entities (e.g., Todo interface) and abstract repositories; platform-agnostic rules.​
+
+Data: Concrete repository implementations, API data sources (e.g., TodoAPIDataSourceImpl mapping entities to domain models), mappers.​
+
+Presentation/App: React views, hooks/view models (e.g., TodoListViewModel invoking use cases), actions/reducers for UI events.​​
+
+Core: Shared utilities, constants, DI setup.​
+
+Folder Structure Example
+text
+src/
+├── Core/          # Constants, utils
+├── Domain/        # Entities, Repos (interfaces), UseCases
+├── Data/          # Repo impls, DataSources, API/DB entities
+└── Presentation/  # Views, ViewModels, Components
+
 
 ## 🚀 Tech Stack
 
