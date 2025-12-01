@@ -20,8 +20,11 @@ Folder Structure Example
 text
 src/
 ├── Core/          # Constants, utils
+
 ├── Domain/        # Entities, Repos (interfaces), UseCases
+
 ├── Data/          # Repo impls, DataSources, API/DB entities
+
 └── Presentation/  # Views, ViewModels, Components
 
 

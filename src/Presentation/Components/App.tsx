@@ -1,11 +1,10 @@
-import PizzaList from "./PizzaList";
-import { pizzaMock } from "../mock/pizzaMock";
+import Order from "./Order";
+
 function App() {
   return (
     <div>
-      {pizzaMock.map((item) => (
-        <PizzaList pizza={item} />
-      ))}
+      <h1>Padre Gino's - order now</h1>
+    <Order />
     </div>
   );
 }

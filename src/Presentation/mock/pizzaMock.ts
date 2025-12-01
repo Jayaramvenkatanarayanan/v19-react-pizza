@@ -1,16 +1,22 @@
 import type { Pizza } from "../../Domain/entities/Pizza";
+import Pepperoni from "../../../public/pizzas/bbq_ckn.webp";
+import Hawaiian from "../assets/pizzas/hawaiian.webp";
+import Bigmeat from "../assets/pizzas/big_meat.webp";
 
 export const pizzaMock: Pizza[] = [
   {
-    name: "Margherita",
-    desc: "Classic pizza with tomato sauce and mozzarella cheese",
+    name: "The Pepperoni Pizza",
+    description: "Mozzarella Cheese, Pepperoni",
+    image: Pepperoni,
   },
   {
-    name: "Pepperoni",
-    desc: "Spicy pepperoni slices with mozzarella",
+    name: "The Hawaiian Pizza",
+    description: "Sliced Ham, Pineapple, Mozzarella Cheese",
+    image: Hawaiian,
   },
   {
-    name: "Veggie Deluxe",
-    desc: "Loaded with fresh vegetables",
+    name: "The Big Meat Pizza",
+    description: "Bacon, Pepperoni, Italian Sausage, Chorizo Sausage",
+    image: Bigmeat,
   },
 ];
