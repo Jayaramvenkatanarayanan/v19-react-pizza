@@ -11,7 +11,7 @@ const intl = new Intl.NumberFormat("en-IN", {
 });
 const Order = () => {
   const [pizzaTypes, setPizzaTypes] = useState<Pizza[]>([]);
-  const [pizzaType, setPizzaType] = useState("pepperoni");
+  const [pizzaType, setPizzaType] = useState<string>("pepperoni");
   const [pizzaSize, setPizzaSize] = useState<PizzaSizeType>("M");
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
