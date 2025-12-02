@@ -1,14 +1,10 @@
-interface PizzaSize{
-  S:number,
-  M:number,
-  L:number,
 
-}
+export type PizzaSizeType = "S" | "M" | "L";
 export interface Pizza {
   id?:string,
   category?:string,
   name: string;
   description: string;
   image: string;
-  sizes?:PizzaSize
+  sizes?:Record<PizzaSizeType,number>
 }
