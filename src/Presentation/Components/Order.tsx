@@ -6,6 +6,8 @@ import { PizzaRepositoryImpl } from "../../Data/repositories/PizzaRepositoryImpl
 import { Helper } from "../../Core/utils/helper";
 import type { Cart } from "../../Domain/entities/Cart";
 import Carts from "./Carts";
+import { OrderUsecase } from "../../Domain/usecases/Order.usecase";
+import { OrderRepositoryImpl } from "../../Data/repositories/OrderRepositoryImpl";
 
 const Order = () => {
   const [pizzaTypes, setPizzaTypes] = useState<Pizza[]>([]);
@@ -32,6 +34,20 @@ const Order = () => {
     }
     fetchPizzaTypes();
   }, []);
+
+  async function checkOut() {
+    if (cart) {
+      setIsLoading(true);
+      const response = await new OrderUsecase(
+        new OrderRepositoryImpl()
+      ).placeOrder(cart);
+      if (!response) {
+        console.log("response not found");
+      }
+      setIsLoading(false);
+      setCart([]);
+    }
+  }
 
   return (
     <div className="order-page">
@@ -121,7 +137,11 @@ const Order = () => {
           )}
         </form>
       </div>
-      {isLoading ? <h2>LOADING …</h2> : <Carts cart={cart} />}
+      {isLoading ? (
+        <h2>LOADING …</h2>
+      ) : (
+        <Carts cart={cart} checkout={checkOut} />
+      )}
     </div>
   );
 };

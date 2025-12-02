@@ -8,4 +8,13 @@ export class Helper {
       currency: "INR",
     });
   }
+  static fetchPostMethod<T extends object>(payload: T) {
+    return {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    };
+  }
 }

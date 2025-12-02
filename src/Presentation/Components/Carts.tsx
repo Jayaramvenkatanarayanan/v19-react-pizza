@@ -4,9 +4,10 @@ import { Helper } from "../../Core/utils/helper";
 
 type CartProps = {
   cart: Cart[];
+  checkout:()=>void
 };
 
-const Carts: React.FC<CartProps> = ({ cart }) => {
+const Carts: React.FC<CartProps> = ({ cart,checkout }) => {
   let total: number = 0;
   if (cart) {
     total = cart.reduce((prev, currentVal) => prev + currentVal.price, 0);
@@ -24,7 +25,7 @@ const Carts: React.FC<CartProps> = ({ cart }) => {
         ))}
       </ul>
       <p>Total: {Helper.intl().format(total)}</p>
-      <button>Checkout</button>
+      <button onClick={checkout}>Checkout</button>
     </div>
   );
 };
