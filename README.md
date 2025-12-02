@@ -36,8 +36,8 @@ src/
 | **Bun** | Runtime + Package Manager + Dev Server |
 | **Vite** | Fast bundler & build tool |
 | **React 19** | UI library |
-| **React Router** | Routing & navigation |
-| **React Query / TanStack** | Server-state & caching |
+| **TanStack - @tanstack/react-router** | Routing & navigation |
+| **TanStack** | Server-state & caching |
 | **Context API / Redux Toolkit** | App state management |
 | **TailwindCSS** | Styling & UI |
 | **Axios / Fetch** | API requests |

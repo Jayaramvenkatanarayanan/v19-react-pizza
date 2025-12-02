@@ -1,19 +1,25 @@
-import {useEffect, useState } from "react";
-import PizzaList from "./Pizza";
-import type { Pizza, PizzaSizeType } from "../../Domain/entities/Pizza";
-import { PizzasUseCase } from "../../Domain/usecases/Pizzas.usecase";
-import { PizzaRepositoryImpl } from "../../Data/repositories/PizzaRepositoryImpl";
-import { Helper } from "../../Core/utils/helper";
-import Carts from "./Carts";
-import { OrderUsecase } from "../../Domain/usecases/Order.usecase";
-import { OrderRepositoryImpl } from "../../Data/repositories/OrderRepositoryImpl";
-import useCartContext from "../hooks/useCartContext";
-const Order = () => {
+import { useEffect, useState } from "react";
+import PizzaList from "../Presentation/Components/Pizza";
+import type { Pizza, PizzaSizeType } from "../Domain/entities/Pizza";
+import { PizzasUseCase } from "../Domain/usecases/Pizzas.usecase";
+import { PizzaRepositoryImpl } from "../Data/repositories/PizzaRepositoryImpl";
+import { Helper } from "../Core/utils/helper";
+import Carts from "../Presentation/Components/Carts";
+import { OrderUsecase } from "../Domain/usecases/Order.usecase";
+import { OrderRepositoryImpl } from "../Data/repositories/OrderRepositoryImpl";
+import useCartContext from "../Presentation/hooks/useCartContext";
+import { createLazyFileRoute } from "@tanstack/react-router";
+
+export const Route = createLazyFileRoute('/order')({
+  component: Order,
+})
+
+function Order () {
   const [pizzaTypes, setPizzaTypes] = useState<Pizza[]>([]);
   const [pizzaType, setPizzaType] = useState<string>("pepperoni");
   const [pizzaSize, setPizzaSize] = useState<PizzaSizeType>("M");
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const {cart, setCart} = useCartContext()
+  const { cart, setCart } = useCartContext();
 
   let selectedPizza: Pizza | undefined;
   let price: number = 0;
@@ -144,5 +150,3 @@ const Order = () => {
     </div>
   );
 };
-
-export default Order;
