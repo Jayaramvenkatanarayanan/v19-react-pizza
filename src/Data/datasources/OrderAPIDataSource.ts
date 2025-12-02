@@ -1,6 +1,6 @@
 import { Helper } from "../../Core/utils/helper";
 import type { Cart } from "../../Domain/entities/Cart";
-import type { Order } from "../../Domain/entities/Order";
+import type { Order, PastOrder } from "../../Domain/entities/Order";
 
 export class OrderAPIDataSource {
   static async placeCartOrder(cart: Cart[]): Promise<Order> {
@@ -13,5 +13,9 @@ export class OrderAPIDataSource {
     }
     const data: Order = await orderApiResponse.json();
     return data;
+  }
+  static async pastOrders(pageNumber:number):Promise<PastOrder[]>{
+    const apiResponse = await fetch(`/api/past-orders?page${pageNumber}`);
+    return await apiResponse.json()
   }
 }

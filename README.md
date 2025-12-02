@@ -37,10 +37,9 @@ src/
 | **Vite** | Fast bundler & build tool |
 | **React 19** | UI library |
 | **TanStack - @tanstack/react-router** | Routing & navigation |
-| **TanStack** | Server-state & caching |
+| **TanStack Query** | Server-state & caching |
 | **Context API / Redux Toolkit** | App state management |
-| **TailwindCSS** | Styling & UI |
-| **Axios / Fetch** | API requests |
+| **Fetch** | API requests |
 | **ESLint / Prettier** | Code quality & formatting |
 
 ---

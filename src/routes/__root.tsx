@@ -3,6 +3,7 @@ import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 import CartProvider from "../Presentation/providers/cartProvider";
 import Header from "../Presentation/Components/Header";
 import PizzaOfTheDay from "../Presentation/Components/PizzaOfTheDay";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 const RootLayout = () => (
   <>
@@ -12,6 +13,7 @@ const RootLayout = () => (
       <PizzaOfTheDay />
     </CartProvider>
     <TanStackRouterDevtools />
+    <ReactQueryDevtools />
   </>
 );
 
