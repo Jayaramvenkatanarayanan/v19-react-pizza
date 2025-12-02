@@ -1,12 +1,16 @@
+import CartProvider from "../providers/cartProvider";
+import Header from "./Header";
 import Order from "./Order";
 import PizzaOfTheDay from "./PizzaOfTheDay";
 
 function App() {
   return (
     <div>
-      <h1 className="logo">Padre Gino's - order now</h1>
-      <Order />
-      <PizzaOfTheDay />
+      <CartProvider>
+        <Header />
+        <Order />
+        <PizzaOfTheDay />
+      </CartProvider>
     </div>
   );
 }
