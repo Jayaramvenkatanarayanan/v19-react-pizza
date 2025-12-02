@@ -17,7 +17,7 @@ Presentation/App: React views, hooks/view models (e.g., TodoListViewModel invoki
 Core: Shared utilities, constants, DI setup.​
 
 Folder Structure Example
-text
+```bash
 src/
 ├── Core/          # Constants, utils
 
@@ -25,7 +25,8 @@ src/
 
 ├── Data/          # Repo impls, DataSources, API/DB entities
 
-└── Presentation/  # Views, ViewModels, Components
+└── Presentation/  # Views, ViewModels, Components , custome hooks
+```
 
 
 ## 🚀 Tech Stack

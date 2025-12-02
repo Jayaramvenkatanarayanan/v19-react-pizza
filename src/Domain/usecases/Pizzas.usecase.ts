@@ -5,4 +5,7 @@ export class PizzasUseCase{
     async getPizzas(){
         return this.repository.getPizzaType()
     }
+    async getPizzaOfTheDay(){
+        return this.repository.getPizzaOfTheDay()
+    }
 }

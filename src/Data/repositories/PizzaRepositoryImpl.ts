@@ -6,4 +6,7 @@ export class PizzaRepositoryImpl implements PizzaRepository{
     async getPizzaType(): Promise<Pizza[]> {
         return await PizzaAPIDataSource.fetchPizzaTypes()
     }
+    async getPizzaOfTheDay(): Promise<Pizza> {
+        return await PizzaAPIDataSource.fetchPizzaOfTheDay()
+    }
 }

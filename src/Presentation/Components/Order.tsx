@@ -3,12 +3,10 @@ import PizzaList from "./Pizza";
 import type { Pizza } from "../../Domain/entities/Pizza";
 import { PizzasUseCase } from "../../Domain/usecases/Pizzas.usecase";
 import { PizzaRepositoryImpl } from "../../Data/repositories/PizzaRepositoryImpl";
+import { Helper } from "../../Core/utils/helper";
 
 type PizzaSizeType = "S" | "M" | "L";
-const intl = new Intl.NumberFormat("en-IN", {
-  style: "currency",
-  currency: "INR",
-});
+
 const Order = () => {
   const [pizzaTypes, setPizzaTypes] = useState<Pizza[]>([]);
   const [pizzaType, setPizzaType] = useState<string>("pepperoni");
@@ -20,7 +18,7 @@ const Order = () => {
 
   if (!isLoading && pizzaTypes) {
     selectedPizza = pizzaTypes?.find((pizza) => pizzaType === pizza.id);
-    price = intl.format(selectedPizza?.sizes?.[pizzaSize] ?? 0);
+    price = Helper.intl().format(selectedPizza?.sizes?.[pizzaSize] ?? 0);
   }
 
   useEffect(() => {
@@ -98,17 +96,17 @@ const Order = () => {
             </div>
           </div>
           <button type="submit">Add to Cart</button>
-          {isLoading ? (
-            <h3>Loading....</h3>
-          ) : (
-            selectedPizza && (
-              <div className="order-pizza">
-                <PizzaList pizza={selectedPizza} />
-                <p>{price}</p>
-              </div>
-            )
-          )}
         </div>
+        {isLoading ? (
+          <h3>Loading....</h3>
+        ) : (
+          selectedPizza && (
+            <div className="order-pizza">
+              <PizzaList pizza={selectedPizza} />
+              <p>{price}</p>
+            </div>
+          )
+        )}
       </form>
     </div>
   );
