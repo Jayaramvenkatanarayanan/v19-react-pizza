@@ -9,4 +9,7 @@ export class OrderUsecase {
   async getPastOrders(pageNumber: number) {
     return this.repository.pastOrders(pageNumber);
   }
+  async getPastOrderDetails(orderNumber: number) {
+    return this.repository.pastOrderDetails(orderNumber);
+  }
 }
