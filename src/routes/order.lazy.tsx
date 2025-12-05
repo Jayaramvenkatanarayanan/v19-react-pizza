@@ -9,12 +9,14 @@ import { OrderUsecase } from "../Domain/usecases/Order.usecase";
 import { OrderRepositoryImpl } from "../Data/repositories/OrderRepositoryImpl";
 import useCartContext from "../Presentation/hooks/useCartContext";
 import { createLazyFileRoute } from "@tanstack/react-router";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import type { Cart } from "../Domain/entities/Cart";
 
-export const Route = createLazyFileRoute('/order')({
+export const Route = createLazyFileRoute("/order")({
   component: Order,
-})
+});
 
-function Order () {
+function Order() {
   const [pizzaTypes, setPizzaTypes] = useState<Pizza[]>([]);
   const [pizzaType, setPizzaType] = useState<string>("pepperoni");
   const [pizzaSize, setPizzaSize] = useState<PizzaSizeType>("M");
@@ -40,15 +42,18 @@ function Order () {
     fetchPizzaTypes();
   }, []);
 
+  const queryClient = useQueryClient()
+  const placeOrderQuery =useMutation({
+    mutationFn:(cart:Cart[]) =>  new OrderUsecase(new OrderRepositoryImpl()).placeOrder(cart),
+    onSettled:()=>{
+     queryClient.invalidateQueries({queryKey:['checkout']})
+    }
+  })
   async function checkOut() {
+    /** use optimisic update */
     if (cart) {
       setIsLoading(true);
-      const response = await new OrderUsecase(
-        new OrderRepositoryImpl()
-      ).placeOrder(cart);
-      if (!response) {
-        console.log("response not found");
-      }
+      await placeOrderQuery.mutate(cart)
       setIsLoading(false);
       setCart([]);
     }
@@ -149,4 +154,4 @@ function Order () {
       )}
     </div>
   );
-};
+}
